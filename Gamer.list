@@ -2,3 +2,4 @@
 DOMAIN-KEYWORD,riotgames
 DOMAIN-SUFFIX,riotgames.com
 DOMAIN-SUFFIX,leagueoflegends.com
+IP-CIDR,43.229.64.0/24
