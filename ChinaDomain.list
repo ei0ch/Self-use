@@ -189,3 +189,5 @@ IP-CIDR,203.135.50.0/24,no-resolve
 IP-CIDR,101.198.128.0/18,no-resolve
 IP-CIDR,101.198.192.0/19,no-resolve
 IP-CIDR,101.199.196.0/22,no-resolve
+#
+DOMAIN-SUFFIX,music.126.net
