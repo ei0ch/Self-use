@@ -1,5 +1,0 @@
-# Rime adeploy self-use
-
-
-
-
