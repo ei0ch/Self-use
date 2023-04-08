@@ -30,14 +30,16 @@ else
   echo ""
   echo "(3/4) 下载自定义配置"
   echo "下载 default.custom.yaml 文件"
-  curl -o ~/Library/Rime/default.custom.yaml https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/default.custom.yaml
+  curl -o ./default.custom.yaml https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/default.custom.yaml
   echo "下载 squirrel.custom.yaml 文件"
-  curl -o ~/Library/Rime/squirrel.custom.yaml https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/squirrel.custom.yaml
+  curl -o ./squirrel.custom.yaml https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/squirrel.custom.yaml
   echo "完成 ✅"
   echo ""
   echo "(4/4) 应用自定义配置"
-  echo "运行 'cp ~/Library/Rime/default.custom.yaml ~/Library/Rime/user.custom.yaml'"
-  cp ~/Library/Rime/default.custom.yaml ~/Library/Rime/user.custom.yaml
+  echo "运行 'cp ./default.custom.yaml ~/Library/Rime/user.custom.yaml'"
+  cp ./default.custom.yaml ~/Library/Rime/user.custom.yaml
+  echo "运行 'cp ./squirrel.custom.yaml ~/Library/Rime/squirrel.custom.yaml'"
+  cp ./squirrel.custom.yaml ~/Library/Rime/squirrel.custom.yaml
   echo "完成 ✅"
   echo ""
   echo "Rime 自动配置完成"
