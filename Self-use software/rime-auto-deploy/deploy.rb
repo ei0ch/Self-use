@@ -29,8 +29,8 @@ else
   puts "done ✅"
   puts ""
   puts "(4/4) Download Custom config."
-  system("cp ./default.custom.yaml ~/Library/Rime/")
-  system("cp ./squirrel.custom.yaml ~/Library/Rime/")
+  system("wget https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/default.custom.yaml -O ~/Library/Rime/default.custom.yaml")
+  system("wget https://raw.githubusercontent.com/ei0ch/Self-use/master/Self-use%20software/rime-auto-deploy/squirrel.custom.yaml -O ~/Library/Rime/squirrel.custom.yaml")
   puts "done ✅"
   puts ""
   puts "Deploy finised"
