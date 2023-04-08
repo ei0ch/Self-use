@@ -36,8 +36,8 @@ else
   echo "完成 ✅"
   echo ""
   echo "(4/4) 应用自定义配置"
-  echo "运行 'cp ./default.custom.yaml ~/Library/Rime/user.custom.yaml'"
-  cp ./default.custom.yaml ~/Library/Rime/user.custom.yaml
+  echo "运行 'cp ./default.custom.yaml ~/Library/Rime/default.custom.yaml'"
+  cp ./default.custom.yaml ~/Library/Rime/default.custom.yaml
   echo "运行 'cp ./squirrel.custom.yaml ~/Library/Rime/squirrel.custom.yaml'"
   cp ./squirrel.custom.yaml ~/Library/Rime/squirrel.custom.yaml
   echo "完成 ✅"
