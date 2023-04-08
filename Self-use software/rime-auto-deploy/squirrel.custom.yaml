@@ -22,7 +22,7 @@ patch:
     # color_scheme: macos_light
     # color_scheme_dark: macos_dark
     color_scheme: wechat_light
-    color_scheme_dark: wechat_dark
+    color_scheme_dark: macos_light
   
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal  # horizontal | vertical
@@ -48,9 +48,9 @@ patch:
       name: "MacOS 浅色／MacOS Light"
       author: 小码哥
       font_face: "PingFangSC"          # 字体及大小
-      font_point: 21
+      font_point: 18
       label_font_face: "PingFangSC"    # 序号字体及大小
-      label_font_point: 12
+      label_font_point: 15
       comment_font_face: "PingFangSC"  # 注字体及大小
       comment_font_point: 21
       candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
@@ -61,8 +61,8 @@ patch:
       mutual_exclusive: false         # 色不叠加： false | true
       border_height: 1                # 外边框 高
       border_width: 1                 # 外边框 宽
-      corner_radius: 5                # 外边框 圆角半径
-      hilited_corner_radius: 5       # 选中框 圆角半径
+      corner_radius: 8                # 外边框 圆角半径
+      hilited_corner_radius: 8       # 选中框 圆角半径
       surrounding_extra_expansion: 0 # 候选项背景相对大小？
       shadow_size: 0                 # 阴影大小
       line_spacing: 5                # 行间距
