@@ -2,7 +2,10 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-urls = File.readlines('.github/workflows/link.txt').map(&:strip)
+# 获取 link.txt 文件的路径
+link_path = File.join(__dir__, 'link.txt')
+
+urls = File.readlines(link_path).map(&:strip)
 
 texts = urls.map do |url|
   doc = Nokogiri::HTML(open(url))
