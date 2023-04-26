@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-urls = File.readlines('config.yml').map(&:strip)
+urls = File.readlines('link.txt').map(&:strip)
 
 texts = urls.map do |url|
   doc = Nokogiri::HTML(open(url))
