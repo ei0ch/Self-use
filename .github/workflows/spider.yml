@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 0,12 * * *'
+    - cron: '0 15 * * * Asia/Shanghai'
 
 jobs:
   build:
@@ -29,3 +29,8 @@ jobs:
 
     - name: Run spider
       run: ruby spider.rb
+
+    - name: Copy tvconfig.json to folder
+      run: |
+        mkdir -p Self-use/Self-use\ software/TV/config
+        cp tvconfig.json Self-use/Self-use\ software/TV/config/
