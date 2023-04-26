@@ -6,7 +6,7 @@ on:
   #   - cron: '0 19 * * *' # 每天凌晨3点（中国上海时间）自动运行
 
 env
-  LINK_FILE: ${{ github.workspace }}/link.txt
+  LINK_FILE: ./Self-use/.github/workflows/link.txt
   OUTPUT_FILE: ${{github.workflow}}/Self-use/Self-use software/TV/config.json
 
 jobs:
