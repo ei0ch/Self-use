@@ -6,8 +6,8 @@ on:
   #   - cron: '0 19 * * *' # 每天凌晨3点（中国上海时间）自动运行
 
 env:
-  LINK_FILE: https://raw.githubusercontent.com/ei0ch/Self-use/master/.github/workflows/link.txt
-  OUTPUT_FILE: ${{ github.workspace }}/Self-use/Self-use software/TV/config.json
+  LINK_FILE: .github/workflows/
+  OUTPUT_FILE: /Self-use/Self-use software/TV/
 
 jobs:
   merge-text:
