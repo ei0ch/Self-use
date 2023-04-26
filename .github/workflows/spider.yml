@@ -1,7 +1,7 @@
 name: Spider
 
 on:
-  push:
+  workflow_dispatch:
     branches: [ main ]
 #  schedule:
 #    - cron: '0 15 * * *'
