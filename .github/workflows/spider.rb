@@ -10,7 +10,8 @@ urls = File.readlines(link_path).map(&:strip)
 
 # 爬取链接中的文本
 texts = urls.map do |url|
-  doc = Nokogiri::HTML(open(url))
+  uri = URI.parse(url)
+  doc = Nokogiri::HTML(open(uri))
   doc.text
 end
 
