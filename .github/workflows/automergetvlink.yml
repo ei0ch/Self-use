@@ -1,50 +1,37 @@
-name: Merge Text
+yaml
+name: Parse links
 
-on:
+on: 
   workflow_dispatch:
   # schedule:
-  #   - cron: '0 19 * * *' # 每天凌晨3点（中国上海时间）自动运行
-
-env:
-  LINK_FILE: .github/workflows
-  OUTPUT_FILE: /Self-use/Self-use software/TV
+  #   - cron: '0 19 * * *' # 每天凌晨3点(中国上海时间)自动运行
 
 jobs:
-  merge-text:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3.5.2
+    - uses: actions/checkout@v3.5.2
 
-#     - name: Download link file
-#       run: wget "${LINK_FILE}" -P ${{ github.workspace }}
-
-    - name: Install dependencies
+    - name: Get links
       run: |
-        sudo apt-get update
-        sudo apt-get install python3-pip -y
-        pip3 install requests
-        pip3 install beautifulsoup4
+        links=`cat link.txt`
 
-    - name: Merge text
-      run: |
-        # 读取链接列表
-        urls=$(cat "${github.workspace}/link.txt")
-
-        # 爬取链接中的文本
-        start_time=$(date +%s.%N)
-        texts=()
-        for url in $urls; do
-          text=$(curl -s "$url" | python3 -c "import sys; from bs4 import BeautifulSoup; print(BeautifulSoup(sys.stdin.read(), 'html.parser').get_text())")
-          texts+=("$text")
+    - name: Parse links
+      run: | 
+        for link in $links; do
+          curl $link > temp.html
+          cat temp.html >> config.json
         done
-        end_time=$(date +%s.%N)
 
-        # 合并文本并写入文件
-        merged_text=$(printf "\n\n" "${texts[@]}")
-        total_time=$(echo "$end_time - $start_time" | bc)
-        num_links=$(echo "${#texts[@]}")
-        time_str=$(date +"%Y-%m-%d %H:%M:%S")
-        info_str="爬取时间：$time_str，用时：$total_time 秒，爬取了 $num_links 条链接\n\n"
-        merged_text="$info_str$merged_text"
-        echo "$merged_text" > "${OUTPUT_FILE}"
+    - name: Commit config.json
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add config.json
+        git commit -m "Update config.json" -a
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        branch: ${{ github.ref }}
+        force: true
