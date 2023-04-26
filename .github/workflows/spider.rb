@@ -2,7 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'json'
 
-urls = File.readlines('link.txt').map(&:strip)
+urls = File.readlines('.github/workflows/link.txt').map(&:strip)
 
 texts = urls.map do |url|
   doc = Nokogiri::HTML(open(url))
