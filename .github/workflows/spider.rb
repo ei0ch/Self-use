@@ -3,7 +3,10 @@ require 'open-uri'
 require 'json'
 
 # 读取链接列表
-urls = File.readlines('link.txt').map(&:strip)
+# 获取 link.txt 文件的路径
+link_path = File.join(__dir__, 'link.txt')
+
+urls = File.readlines(link_path).map(&:strip)
 
 # 爬取链接中的文本
 texts = urls.map do |url|
