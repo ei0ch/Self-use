@@ -7,7 +7,7 @@ on:
 
 env:
   LINK_FILE: link.txt
-  TZ: Asia/Shanghai
+  OUTPUT_FILE: ${{ github.workspace }}/Self-use/Self-use software/TV/merged_text.txt
 
 jobs:
   merge-text:
@@ -26,7 +26,7 @@ jobs:
     - name: Merge text
       run: |
         # 读取链接列表
-        urls=$(cat $LINK_FILE)
+        urls=$(cat "${LINK_FILE}")
 
         # 爬取链接中的文本
         start_time=$(date +%s.%N)
@@ -44,4 +44,4 @@ jobs:
         time_str=$(date +"%Y-%m-%d %H:%M:%S")
         info_str="爬取时间：$time_str，用时：$total_time 秒，爬取了 $num_links 条链接\n\n"
         merged_text="$info_str$merged_text"
-        echo "$merged_text" > config.json
+        echo "$merged_text" > "${OUTPUT_FILE}"
