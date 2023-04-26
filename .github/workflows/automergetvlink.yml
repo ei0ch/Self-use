@@ -16,11 +16,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Print current working directory
-      run: pwd
-
-    - name: Change working directory
-      run: cd ${{ github.workspace }}
+    - name: Download link file
+      run: wget "${LINK_FILE}" -P ${{ github.workspace }}
 
     - name: Install dependencies
       run: |
@@ -32,7 +29,7 @@ jobs:
     - name: Merge text
       run: |
         # 读取链接列表
-        urls=$(cat "${LINK_FILE}")
+        urls=$(cat "${github.workspace}/link.txt")
 
         # 爬取链接中的文本
         start_time=$(date +%s.%N)
