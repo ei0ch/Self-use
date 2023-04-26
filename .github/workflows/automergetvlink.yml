@@ -6,7 +6,7 @@ on:
   #   - cron: '0 19 * * *' # 每天凌晨3点（中国上海时间）自动运行
 
 env:
-  LINK_FILE: link.txt
+  LINK_FILE: ${{ github.workspace }}/link.txt
   OUTPUT_FILE: ${{ github.workspace }}/Self-use/Self-use software/TV/merged_text.txt
 
 jobs:
