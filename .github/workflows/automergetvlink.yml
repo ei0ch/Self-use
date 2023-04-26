@@ -1,0 +1,47 @@
+name: Merge Text
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 19 * * *' # 每天凌晨3点（中国上海时间）自动运行
+
+env:
+  LINK_FILE: link.txt
+  TZ: Asia/Shanghai
+
+jobs:
+  merge-text:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install python3-pip -y
+        pip3 install requests
+        pip3 install beautifulsoup4
+
+    - name: Merge text
+      run: |
+        # 读取链接列表
+        urls=$(cat $LINK_FILE)
+
+        # 爬取链接中的文本
+        start_time=$(date +%s.%N)
+        texts=()
+        for url in $urls; do
+          text=$(curl -s "$url" | python3 -c "import sys; from bs4 import BeautifulSoup; print(BeautifulSoup(sys.stdin.read(), 'html.parser').get_text())")
+          texts+=("$text")
+        done
+        end_time=$(date +%s.%N)
+
+        # 合并文本并写入文件
+        merged_text=$(printf "\n\n" "${texts[@]}")
+        total_time=$(echo "$end_time - $start_time" | bc)
+        num_links=$(echo "${#texts[@]}")
+        time_str=$(date +"%Y-%m-%d %H:%M:%S")
+        info_str="爬取时间：$time_str，用时：$total_time 秒，爬取了 $num_links 条链接\n\n"
+        merged_text="$info_str$merged_text"
+        echo "$merged_text" > config.json
