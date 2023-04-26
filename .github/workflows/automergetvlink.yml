@@ -7,7 +7,7 @@ on:
 
 env:
   LINK_FILE: link.txt
-  OUTPUT_FILE: ${{ github.workspace }}/Self-use/Self-use software/TV/merged_text.txt
+  OUTPUT_FILE: ${{ github.workspace }}/Self-use/Self-use software/TV/config.json
 
 jobs:
   merge-text:
@@ -15,6 +15,12 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+
+    - name: Print current working directory
+      run: pwd
+
+    - name: Change working directory
+      run: cd ${{ github.workspace }}
 
     - name: Install dependencies
       run: |
