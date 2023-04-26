@@ -1,21 +1,16 @@
 require 'nokogiri'
 require 'open-uri'
-require 'json'
 
-# 获取 link.txt 文件的路径
-link_path = File.join(__dir__, 'link.txt')
-
-urls = File.readlines(link_path).map(&:strip)
+# 读取链接列表
+urls = File.readlines('link.txt').map(&:strip)
 
 # 爬取链接中的文本
 texts = urls.map do |url|
-  doc = Nokogiri::HTML(open(url))
+  uri = URI.parse(url)
+  doc = Nokogiri::HTML(open(uri))
   doc.text
 end
 
-# 合并文本
+# 合并文本并写入文件
 merged_text = texts.join("\n\n")
-
-# 将文本转换为 JSON 格式并写入文件
-json_data = { tvconfig: merged_text }.to_json
-File.write('tvconfig.json', json_data)
+File.write('merged_text.txt', merged_text)
