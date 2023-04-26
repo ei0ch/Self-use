@@ -28,7 +28,7 @@ jobs:
         gem install open-uri
 
     - name: Run spider
-      run: ruby spider.rb
+      run: ruby Self-use/.github/workflows/spider.rb
 
     - name: Copy tvconfig.json to folder
       run: |
