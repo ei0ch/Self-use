@@ -30,7 +30,7 @@ jobs:
   
   save_to_repo:
     runs-on: ubuntu-latest
-    needs: parse_links  # 需要依赖parse_links job
+    needs: parse_links  
     steps: 
     - name: Download artifact  
       uses: actions/download-artifact@v2
@@ -38,11 +38,12 @@ jobs:
         name: config.json
     - name: Save to repo  
       run: |
-        git clone https://github.com/ei0ch/Self-use # 克隆仓库
-        cp config.json Self-use/Self-use%20software/TV/ # 复制到指定路径
+        git clone https://github.com/ei0ch/Self-use 
+        mkdir -p Self-use/Self-use%20software/TV/    # 创建路径  
+        cp config.json Self-use/Self-use%20software/TV/    
         cd Self-use
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add .
-        git commit -m "Add config.json"  # 提交更新
-        git push  # 推送更新
+        git commit -m "Add config.json"  
+        git push  
