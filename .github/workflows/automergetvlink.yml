@@ -27,23 +27,23 @@ jobs:
       with:
         name: config.json
         path: config.json 
-  
   save_to_repo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  
     needs: parse_links  
-    steps: 
+    steps:     
+    - name: Setup git identity    
+      run: |
+        git config --local user.email "ei0ch@github.com"
+        git config --local user.name "GitHub Action" 
     - name: Download artifact  
       uses: actions/download-artifact@v2
       with:
         name: config.json
     - name: Save to repo  
-      run: |
-        git clone https://github.com/ei0ch/Self-use 
-        mkdir -p Self-use/Self-use%20software/TV/    # 创建路径  
+      run: |  
+        git clone git@github.com:ei0ch/Self-use.git 
+        mkdir -p Self-use/Self-use%20software/TV/  
         cp config.json Self-use/Self-use%20software/TV/    
-        cd Self-use
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add .
-        git commit -m "Add config.json"  
-        git push  
+        cd Self-use 
+        git tag v1.0.0
+        git push git@github.com:ei0ch/Self-use.git v1.0.0
