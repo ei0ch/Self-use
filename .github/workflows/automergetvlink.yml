@@ -8,16 +8,21 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
     - uses: actions/checkout@v3.5.2  # Checkout the repository
-
+    
     - name: Get link.txt
       run: |
-        cat .github/workflows/link.txt > links.txt  # Get link.txt content into links.txt
-        
-    - name: Set links.txt permissions  
-      run: |  
-        chmod o+r ./links.txt   # Set permissions to allow other workflow steps to read
+        cat .github/workflows/link.txt > links.txt
+
+    - name: Check link.txt exists  
+      run: |
+        if [ ! -f links.txt ]; then  
+          echo "links.txt does not exist, skipping..."  
+        else  
+          ...  # Continue with the workflow
+        fi
         
     # Rest of workflow...  
+ 
  
 
 
