@@ -1,48 +1,48 @@
-name: Parse links   
-on: 
-  workflow_dispatch:      
-jobs:      
+yaml 
+name: Parse links    
+on:
+  workflow_dispatch:    
+jobs:   
    parse_links:
-     runs-on: ubuntu-latest     
+     runs-on: ubuntu-latest   
      steps:
-     - uses: actions/checkout@v2      
-     - name: Get link.txt        
-       run: cat .github/workflows/link.txt > links.txt    
-     - name: Delete existing links.json (if any)        
-       run: rm -f /TV/Self-use\ software/links.json       
-     - name: Get Shanghai time and stats       
-       run: |
-         TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')   
-         LINK_COUNT=$(cat links.txt | wc -l)  
-         DURATION=$(cat links.txt | xargs -n 1 time curl |& grep '^real' | awk '{s+=$2} END {printf "%.2f", s/60}')    
+     - uses: actions/checkout@v2    
+     - name: Get link.txt      
+       run: cat .github/workflows/link.txt > links.txt  
+     - name: Delete existing links.json (if any)      
+       run: rm -f /TV/Self-use\ software/links.json     
+     - name: Get Shanghai time and stats     
+       run: |  
+         TIME=$(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')  
+         LINK_COUNT=$(cat links.txt | wc -l)   
+         DURATION=$(cat links.txt | xargs -n 1 time curl |& grep '^real' | awk '{s+=$2} END {printf "%.2f", s/60}')  
          echo "{
-           \"Time\": $TIME,     
+           \"Time\": $TIME,  
            \"Link count\": $LINK_COUNT,
-           \"Duration\": $DURATION (mins)      
-          }" > links.json
-     - name: Parse links         
-       run: |     
-         while read link; do
+           \"Duration\": $DURATION (mins)   
+          }" > links.json  
+     - name: Parse links       
+       run: |   
+         while read link; do  
              timeout 30s curl "$link" >> links.json   
-         done < links.txt    
-     - name: Upload artifact               
-       uses: actions/upload-artifact@v2       
+         done < links.txt
+     - name: Upload artifact            
+       uses: actions/upload-artifact@v2     
        with:
-         name: links.json         
-         path: /TV/Self-use\ software/            
-   commit_files:        
-     needs: parse_links        
-     runs-on: ubuntu-latest      
+         name: links.json       
+         path: Self-use/Self-use software/TV/  
+   commit_files:     
+     needs: parse_links     
+     runs-on: ubuntu-latest       
      steps: 
-    - uses: actions/checkout@v2
-    - name: Download artifact  
-      uses: actions/download-artifact@v2  
-      with: 
-        name: links.json
-    - name: Commit files
-      uses: stefanzweifel/git-auto-commit-action@v4.3.0
-      with:
-        branch: master
-        file_pattern: links.json
-        directory: Self-use/Self-use software/TV/
-        commit_message: Add config file 
+      - uses: actions/checkout@v2
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: links.json
+      - name: Commit files
+        uses: stefanzweifel/git-auto-commit-action@v4.3.0
+        with:
+          branch: master  
+          file_pattern: Self-use software/TV/links.json 
+          commit_message: Add config file
