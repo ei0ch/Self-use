@@ -1,24 +1,49 @@
+yaml
 name: Parse links
 
 on:
   workflow_dispatch:  
 #   schedule: 
-#     cron: "0 0 * * *"   # 每天上午0点 
-#     tz: Asia/Shanghai
-    
+#     cron: "0 0 * * *"   
+#     tz: Asia/Shanghai  
+
 jobs:
   parse_links:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2  # Checkout代码
+    - uses: actions/checkout@v2  
     - name: Get link.txt  
       run: |
-        cat .github/workflows/link.txt > links.txt   # 读取link.txt到links.txt
-    - name: Parse links
+        cat .github/workflows/link.txt > links.txt   
+    - name: Parse links 
       run: |
-        config={}  # 定义空config
-        while read link; do   # 遍历links.txt中的每一行
-          content=$(curl -s $link)   # 访问链接获取内容
-          config["$link"]=$content   # 将链接和内容添加到config中
+        config={}  
+        while read link; do    
+          content=$(curl -s $link)    
+          config["$link"]=$content   
         done < links.txt
-        echo "$config" > config.json  # 输出config到config.json文件中
+        echo "$config" > config.json
+    - name: Upload artifact  
+      uses: actions/upload-artifact@v2
+      with:
+        name: config.json
+        path: config.json 
+  
+  save_to_repo:
+    runs-on: ubuntu-latest
+    needs: parse_links  # 需要依赖parse_links job
+    steps: 
+    - name: Download artifact  
+      uses: actions/download-artifact@v2
+      with:
+        name: config.json
+    - name: Save to repo  
+      run: |
+        git clone https://github.com/ei0ch/Self-use # 克隆仓库
+        cp config.json Self-use/Self-use%20software/TV/ # 复制到指定路径
+        cd Self-use
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Add config.json"  # 提交更新
+        git push  # 推送更新
