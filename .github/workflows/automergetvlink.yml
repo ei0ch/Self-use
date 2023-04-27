@@ -1,40 +1,45 @@
 name: Parse links
 
-on:
+on: 
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3.5.2 
-      with:
-        ref: main
-    - name: Set link.txt permissions 
-      run: | 
-        chmod o+r link.txt 
-    - name: Check link.txt exists  
-      run: |   
-        if [ ! -f link.txt ]; then  
-          echo "link.txt does not exist, exiting..."   
-          exit 1   
-        fi  
-    - name: Get links   
-      run: |   
-        links=cat link.txt 
-    - name: Parse links 
-      run: |      
-        for link in $links; do  
-          curl $link > temp.html 
-          cat temp.html >> config.json 
-        done
-    - name: Commit config.json 
+    - uses: actions/checkout@v3.5.2  
+
+    - name: Set link.txt permissions  
+      run: |  
+        chmod o+r link.txt  
+
+    - name: Check link.txt exists   
       run: |    
-        git config --local user.email "action@github.com"   
-        git config --local user.name "GitHub Action"   
-        git add config.json   
-        git commit -m "Update config.json" -a 
-    - name: Push changes 
-      uses: ad-m/github-push-action@v0.6.0 
+        if [ ! -f link.txt ]; then   
+          echo "link.txt does not exist, exiting..."    
+          exit 1    
+        fi   
+
+    - name: Get links    
+      run: |    
+        links=`cat link.txt`  
+
+    - name: Parse links  
+      run: |       
+        for link in $links; do   
+          curl $link > temp.html  
+          cat temp.html >> config.json  
+        done
+
+    - name: Commit config.json  
+      run: |     
+        git config --local user.email "action@github.com"    
+        git config --local user.name "GitHub Action"    
+        git add config.json    
+        git commit -m "Update config.json" -a  
+    
+    - name: Push changes  
+      uses: ad-m/github-push-action@v0.6.0  
       with:
         branch: ${{ github.ref }}
-        force: true （已编辑） 
+        force: true
