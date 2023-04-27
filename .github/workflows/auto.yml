@@ -1,46 +1,31 @@
 name: Parse links
-on:
-  workflow_dispatch: 
-jobs:  
+on: 
+  workflow_dispatch:  
+jobs:   
   parse_links:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
-    - uses: actions/checkout@v2 
-    - name: Get link.txt 
+    - uses: actions/checkout@v2  
+    - name: Get link.txt  
+      run: cat .github/workflows/link.txt > links.txt 
+    - name: Get Shanghai time and stats    
       run: |
-        cat .github/workflows/link.txt > links.txt
-    - name: Delete existing links.json (if any) 
-      run: rm -f links.json
-    - name: Parse links  
-      run: |
-        while read link; do
-          content=$(curl $link)       
-          echo "$content" >> links.json  
-        done < links.txt 
-    - name: Parse links  
-      run: |
-        while read link; do
-          content=$(curl $link)       
-          echo "$content" >> links.json  
-        done < links.txt
-    - name: Get Shanghai time and stats  
-      run: |
-        TIME=$(curl https://timeapi.io/api/Time/current/zone?timeZone=Asia/Shanghai)
+        TIME=$(curl https://timeapi.io/api/Time/current/zone?timeZone=Asia/Shanghai) 
         LINK_COUNT=$(cat links.txt | wc -l)
         DURATION=$(cat links.txt | xargs -n 1 time curl |& grep '^real' | awk '{s+=$2} END {printf "%.2f", s/60}"')
         echo "{
-          \"Time\": $TIME, 
+          \"Time\": $TIME,  
           \"Link count\": $LINK_COUNT,
-          \"Duration\": $DURATION (mins)
-        }" > links.json
-    - name: Cat links.json 
-      run: cat links.json 
-    - name: Upload artifact  
-      uses: actions/upload-artifact@v2  
-      with:
+          \"Duration\": $DURATION (mins)  
+         }" > links.json
+    - name: Parse links  
+      run: while read link; do curl $link >> links.json; done < links.txt  
+    - name: Upload artifact       
+      uses: actions/upload-artifact@v2
+      with: 
         name: links.json
-        path: Self-use/Self-use software/links.json
-  commit_files: 
+        path:  Self-use software/links.json          
+  commit_files:   
     needs: parse_links
     runs-on: ubuntu-latest
     steps:
