@@ -1,10 +1,10 @@
 name: Parse links
 
 on:
-  workflow_dispatch:  # 手动触发
-  schedule:            # 定时触发,首先注释 
-    cron: "0 0 * * *"  # 每天上午0点
-    tz: Asia/Shanghai  # 时区设为上海时间
+  workflow_dispatch:  
+  schedule: 
+    cron: "0 0 * * *"   # 每天上午0点 
+    tz: Asia/Shanghai
     
 jobs:
   parse_links:
