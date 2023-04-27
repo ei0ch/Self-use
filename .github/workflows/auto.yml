@@ -30,9 +30,9 @@ jobs:
     needs: parse_links
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Download artifact  
-      uses: actions/download-artifact@v2  
+    - uses: actions/checkout@v3
+    - name: Clone repo
+      run: git clone https://github.com/ei0ch/Self-use.git 
       with: 
         name: links.json
     - name: Commit files
