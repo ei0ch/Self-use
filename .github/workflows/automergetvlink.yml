@@ -9,9 +9,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3.5.2  
 
+    - name: Copy link.txt
+      run: |
+        cp ./link.txt ./workflow/link.txt  
+
     - name: Set link.txt permissions  
       run: |  
-        chmod o+r link.txt  
+        chmod o+r ./workflow/link.txt
 
     - name: Check link.txt exists   
       run: |    
