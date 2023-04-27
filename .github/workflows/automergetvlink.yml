@@ -37,7 +37,7 @@ jobs:
         name: config.json
     - name: Save to repo  
       run: |  
-        git clone git@github.com:ei0ch/Self-use.git 
+        git clone https://github.com/ei0ch/Self-use.git
         mkdir -p Self-use/Self-use%20software/TV/  
         cp config.json Self-use/Self-use%20software/TV/    
         cd Self-use
