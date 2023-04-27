@@ -9,21 +9,37 @@ jobs:
     - name: Get link.txt 
       run: |
         cat .github/workflows/link.txt > links.txt
-    - name: Parse links 
+    - name: Delete existing links.json (if any) 
+      run: rm -f links.json
+    - name: Parse links  
       run: |
-        config={}
         while read link; do
-          content=$(curl $link) 
-          config["$link"]=$content
+          content=$(curl $link)       
+          echo "$content" >> links.json  
+        done < links.txt 
+    - name: Parse links  
+      run: |
+        while read link; do
+          content=$(curl $link)       
+          echo "$content" >> links.json  
         done < links.txt
-        echo "$config" > links.json
+    - name: Get Shanghai time and stats  
+      run: |
+        TIME=$(curl https://timeapi.io/api/Time/current/zone?timeZone=Asia/Shanghai)
+        LINK_COUNT=$(cat links.txt | wc -l)
+        DURATION=$(cat links.txt | xargs -n 1 time curl |& grep '^real' | awk '{s+=$2} END {printf "%.2f", s/60}"')
+        echo "{
+          \"Time\": $TIME, 
+          \"Link count\": $LINK_COUNT,
+          \"Duration\": $DURATION (mins)
+        }" > links.json
     - name: Cat links.json 
       run: cat links.json 
-    - name: Upload artifact      
-      uses: actions/upload-artifact@v2
+    - name: Upload artifact  
+      uses: actions/upload-artifact@v2  
       with:
         name: links.json
-        path: links.json
+        path: Self-use/Self-use software/links.json
   commit_files: 
     needs: parse_links
     runs-on: ubuntu-latest
