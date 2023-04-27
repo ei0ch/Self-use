@@ -13,20 +13,20 @@ jobs:
       run: |
         cat .github/workflows/link.txt > links.txt  
     - name: Parse links  
+      run: |
+        config={}
+        while read link; do
+          content=$(curl $link)
+          config["$link"]=$content
+        done < links.txt
+        echo "$config" > links.json  
 #       run: |
 #         config={}
 #         while read link; do
 #           content=$(curl $link)
 #           config["$link"]=$content
 #         done < links.txt
-#         echo "$config" > links.json 
-       run: |
-        config={}
-        while read link; do
-          content=$(curl $link)
-          config["$link"]=$content
-        done < links.txt
-        echo "$config" > links.json 
+#         echo "$config" > links.json  
     - name: Upload artifact  
       uses: actions/upload-artifact@v2  
       with:
