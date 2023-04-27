@@ -1,57 +1,24 @@
 name: Parse links
 
-on: 
-  workflow_dispatch:  
-
-jobs:
-  build:
-    runs-on: ubuntu-latest 
-    steps:
-    - uses: actions/checkout@v3.5.2  
-
-    - name: Get link.txt
-      run: |
-        cat .github/workflows/link.txt > links.txt
-
-    - name: Check link.txt exists  
-      run: |
-        if [ ! -f links.txt ]; then  
-          echo "links.txt does not exist, skipping..."  
-        else
-          ...  # Continue with the workflow
-        fi
-
- 
- 
-
-
-    - name: Check link.txt exists   
-      run: |    
-        if [ ! -f link.txt ]; then   
-          echo "link.txt does not exist, exiting..."    
-          exit 1    
-        fi   
-
-    - name: Get links    
-      run: |    
-        links=`cat link.txt`  
-
-    - name: Parse links  
-      run: |       
-        for link in $links; do   
-          curl $link > temp.html  
-          cat temp.html >> config.json  
-        done
-
-    - name: Commit config.json  
-      run: |     
-        git config --local user.email "action@github.com"    
-        git config --local user.name "GitHub Action"    
-        git add config.json    
-        git commit -m "Update config.json" -a  
+on:
+  workflow_dispatch:  # 手动触发
+  schedule:            # 定时触发,首先注释 
+    cron: "0 0 * * *"  # 每天上午0点
+    tz: Asia/Shanghai  # 时区设为上海时间
     
-    - name: Push changes  
-      uses: ad-m/github-push-action@v0.6.0  
-      with:
-        branch: ${{ github.ref }}
-        force: true
+jobs:
+  parse_links:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2  # Checkout代码
+    - name: Get link.txt  
+      run: |
+        cat .github/workflows/link.txt > links.txt   # 读取link.txt到links.txt
+    - name: Parse links
+      run: |
+        config={}  # 定义空config
+        while read link; do   # 遍历links.txt中的每一行
+          content=$(curl -s $link)   # 访问链接获取内容
+          config["$link"]=$content   # 将链接和内容添加到config中
+        done < links.txt
+        echo "$config" > config.json  # 输出config到config.json文件中
