@@ -5,17 +5,20 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     steps:
-    - uses: actions/checkout@v3.5.2  
+    - uses: actions/checkout@v3.5.2  # Checkout the repository
 
-    - name: Copy link.txt  
+    - name: Get link.txt
       run: |
-        cp ./link.txt ./workflow/link.txt  
+        cat .github/workflows/link.txt > links.txt  # Get link.txt content into links.txt
         
-    - name: Set link.txt permissions  
+    - name: Set links.txt permissions  
       run: |  
-        chmod o+r ./workflow/link.txt  
+        chmod o+r ./links.txt   # Set permissions to allow other workflow steps to read
+        
+    # Rest of workflow...  
+ 
 
 
     - name: Check link.txt exists   
