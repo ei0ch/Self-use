@@ -2,9 +2,9 @@ name: Parse links
 
 on:
   workflow_dispatch:  
-  schedule: 
-    cron: "0 0 * * *"   # 每天上午0点 
-    tz: Asia/Shanghai
+#   schedule: 
+#     cron: "0 0 * * *"   # 每天上午0点 
+#     tz: Asia/Shanghai
     
 jobs:
   parse_links:
