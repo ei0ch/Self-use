@@ -34,7 +34,7 @@ jobs:
     - name: Setup git identity    
       run: |
         git config --local user.email "ei0ch@github.com"
-        git config --local user.name "GitHub Action" 
+        git config --local user.name "ei0ch" 
     - name: Download artifact  
       uses: actions/download-artifact@v2
       with:
