@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2  
       with:
         name: links.json
-        path: links.json
+        path: Self-use/1/links.json
           
   commit_files:
     needs: parse_links 
