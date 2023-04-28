@@ -1,31 +1,32 @@
-name: Parse links 
-on:  
- workflow_dispatch:    
+name: Parse links
+on: 
+  workflow_dispatch:
 
 jobs:
-  parse_links: 
-    runs-on: ubuntu-latest    
+  parse_links:
+    runs-on: ubuntu-latest 
     timeout-minutes: 180 
     steps:
     - uses: actions/checkout@v2
-    - name: Get link.txt   
-      run: |  
-        cat .github/workflows/link.txt > links.txt
-    - name: Parse links 
+    - name: Get link.txt  
       run: |
-        config={}    
-        while read link; do  
-           content=$(curl -s $link)
-           config["$link"]=$content
+        cat .github/workflows/link.txt > links.txt
+    - name: Parse links   
+      run: |
+        config={}
+        while read link; do
+          content=$(curl -s $link)
+          config["$link"]=$content
         done < links.txt
         echo "$config" > links.json
-    - name: Upload artifact  
+    - name: Upload artifact 
       uses: actions/upload-artifact@v2  
       with:
-        name: links.json  
-        path: Self-use/1/        
+        name: links.json
+        path: links.json
+          
   commit_files:
-    needs: parse_links
+    needs: parse_links 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -38,5 +39,5 @@ jobs:
       with:
         branch: master
         file_pattern: links.json
-        directory: Self-use/1/
-        commit_message: Add config file
+        directory: Self-use/Self-use software/TV/  
+        commit_message: Add config file       
