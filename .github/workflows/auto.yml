@@ -39,4 +39,4 @@ jobs:
         branch: master 
         file_pattern: links.json  
         directory: Self-use/Self-use software/  
-         commit_message: Add config file
+        commit_message: Add config file
