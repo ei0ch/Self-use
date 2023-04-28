@@ -24,7 +24,7 @@ jobs:
       uses: actions/upload-artifact@v2  
       with:
         name: links.json
-        path: links.json
+        path: ./Self-use/Self-use software/TV/links.json
           
   commit_files:
     needs: parse_links 
