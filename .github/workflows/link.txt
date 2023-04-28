@@ -1,2 +1,2 @@
-raw.liucn.cc/box/dm.txt
-raw.liucn.cc/box/xiaopingguo.json
+https://raw.liucn.cc/box/dm.txt
+#https://raw.liucn.cc/box/xiaopingguo.json
