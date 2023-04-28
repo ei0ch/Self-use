@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v2  
       with:
         name: links.json
-        path: Self-use/Self-use software/    
+        path: ./Self-use/Self-use software/TV    
   commit_files:
     needs: parse_links
     runs-on: ubuntu-latest 
