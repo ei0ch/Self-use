@@ -1,0 +1,60 @@
+2023-05-06 20:42:14.842301 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 20:42:16.023304 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 20:42:52.358044 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 20:42:53.771003 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:03:51.771630 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:03:51.774143 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:08:17.611050 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:08:19.487917 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:16:20.659833 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:16:20.664573 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:39:38.706536 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:39:39.891798 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:39:54.899700 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:39:54.908434 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:39:54.975420 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:39:56.888165 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:40:01.968483 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:40:01.969698 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:40:05.024379 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:40:06.186413 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:40:22.385854 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:40:39.485088 [NOTICE] [RequestGroupMan.cc:427] GID 为 21262d5814b58919 的下载项未完成：$HOME/Download/windows_11_professional_x64_2023.iso
+2023-05-06 21:40:39.847101 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:41:57.847077 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:41:57.851463 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:41:57.916065 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:41:58.850346 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:41:58.853021 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:42:08.922824 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:42:10.008507 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:42:53.234039 [NOTICE] [RequestGroup.cc:1217] 下载已完成：~/Download/mmo-20170707165001.pdf
+2023-05-06 21:45:02.886077 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:45:02.890541 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:45:02.951278 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:45:03.999633 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:45:16.973928 [NOTICE] [RequestGroup.cc:1217] 下载已完成：$HOME/Downloads/mmo-20170707165001.pdf
+2023-05-06 21:46:05.600516 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:46:05.612561 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:46:05.686607 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:46:06.709246 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:46:12.331074 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:46:12.582540 [NOTICE] [RequestGroup.cc:1217] 下载已完成：/Users/eich/Downloads/mmo-20170707165001.pdf
+2023-05-06 21:46:13.334158 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:47:02.336515 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:47:02.338903 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:54:45.507694 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:54:47.145489 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:55:15.137577 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:55:15.144752 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:55:15.214073 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:55:17.142533 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:55:18.993798 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:55:18.997525 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:55:26.077892 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:55:27.284548 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:56:09.301388 [NOTICE] [DownloadEngine.cc:265] 正在紧急停止…
+2023-05-06 21:56:09.302843 [NOTICE] [MultiUrlRequestInfo.cc:342] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:56:09.380211 [NOTICE] [HttpListenCommand.cc:108] IPv4 RPC：正在监听 TCP 端口 26800
+2023-05-06 21:56:11.302589 [NOTICE] [SaveSessionCommand.cc:82] 会话已成功序列化至 /Users/eich/.aria2/aria2.session。
+2023-05-06 21:59:05.887871 [NOTICE] [RequestGroup.cc:1217] 下载已完成：/Users/eich/Downloads/mmo-20170707165001.pdf
