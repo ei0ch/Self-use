@@ -1,0 +1,25 @@
+# NAME: OpenAI
+# AUTHOR: blackmatrix7
+# REPO: https://github.com/blackmatrix7/ios_rule_script
+# UPDATED: 2023-05-28 18:23:59
+# DOMAIN: 2
+# DOMAIN-KEYWORD: 1
+# DOMAIN-SUFFIX: 4
+# TOTAL: 7
+DOMAIN,cdn.auth0.com
+DOMAIN,o33249.ingest.sentry.io
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,identrust.com
+DOMAIN-KEYWORD,openai
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,pay.openai.com
+DOMAIN-SUFFIX,chat.openai.com
+DOMAIN-SUFFIX,auth0.openai.com
+DOMAIN-SUFFIX,platform.openai.com
+# Add ai.com
+# Add stripe.com
+DOMAIN-SUFFIX,invoice.stripe.com
+DOMAIN-SUFFIX,stripe.com
+DOMAIN,openaiapi-site.azureedge.net
+DOMAIN,chat.openai.com.cdn.cloudflare.net
